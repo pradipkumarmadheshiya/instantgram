@@ -53,7 +53,7 @@ const PostCard = ({post}) => {
                 </div>
 
                 <img src={photo? photo : "/assets/image_placeholder.jpg"} alt="post image" 
-                className='h-35 xs:h-40 sm:h-45 md:h-50 lg:h-70 w-full rounded-[16px] object-cover my-4'/>
+                className='h-80 lg:h-110 w-full rounded-[16px] object-cover my-4'/>
             </Link>
 
             <PostStats post={post}/>

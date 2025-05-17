@@ -16,7 +16,7 @@ const Home = () => {
             posts.length==0 ? 
             <p className='bg-gray-50 px-8 py-4 rounded'>No posts yet. Please create one to get started.</p> 
             :
-            <div className='flex flex-col gap-4'>
+            <div className='flex flex-col gap-4 w-full'>
               {posts.map((post, index)=>(
                 <PostCard key={index} post={post}/>
               ))}

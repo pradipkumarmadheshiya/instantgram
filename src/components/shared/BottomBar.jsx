@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 const BottomBar = () => {
   return (
-    <section className='flex w-full fixed z-50 bottom-0 rounded-t-[12px] px-4 py-2 sm:hidden border-t border-gray-400 bg-white'>
+    <section className='flex w-full fixed z-50 bottom-0 rounded-t-[12px] px-4 py-3 sm:hidden border-t border-gray-400 bg-white'>
       <ul className='flex justify-around items-center w-full'>
         {
           bottombarLinks.map((link, index)=>{
@@ -13,7 +13,7 @@ const BottomBar = () => {
                 <NavLink to={link.route}
                   className={({isActive})=>isActive ? "" :"opacity-60 hover:opacity-100"}>
                   <img src={link.imgURL} alt={link.label} 
-                    className='w-5 h-5'/>
+                    className='w-6 h-6'/>
                 </NavLink>
               </li>
             )

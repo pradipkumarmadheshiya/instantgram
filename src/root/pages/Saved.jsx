@@ -6,10 +6,6 @@ const Saved = () => {
 
   const {save}=useAppContext()
 
-  // if (save.length==0){
-  //   return 
-  // }
-
   return (
     <div className='flex flex-1'>
       <div className='flex flex-col flex-1 items-center gap-8 overflow-scroll p-4 md:px-6 lg:p-6 custom-scrollbar'>
