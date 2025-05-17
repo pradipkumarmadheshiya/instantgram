@@ -15,7 +15,7 @@ const Saved = () => {
           {save.length==0 ? 
             <p className='bg-gray-50 px-8 py-4 rounded'>No content saved yet. Please save content to view it here.</p> 
             :
-            <div className='flex flex-col gap-4'>
+            <div className='flex flex-col gap-4 w-full'>
               {save.map((post, index)=>(
                 <PostCard key={index} post={post}/>
               ))}
