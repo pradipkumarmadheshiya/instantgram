@@ -25,7 +25,7 @@ const FileUploader = () => {
         onChange={handleFileUpload}
         type="file" 
         name='photo'
-        accept=".jpg,.jpeg,.png,.svg"
+        accept="image/*"
         className="text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 py-1 px-2 w-45"
       />
     </form>
