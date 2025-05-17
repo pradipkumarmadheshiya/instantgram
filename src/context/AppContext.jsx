@@ -28,12 +28,7 @@ export const AppContextProvider = ({ children }) => {
     tags: "",
   });
 
-  const [posts, setPosts] = useState(()=>{
-    return JSON.parse(localStorage.getItem("localPost")) || []
-  });
-  useEffect(()=>{
-    localStorage.setItem("localPost", JSON.stringify(posts)); 
-  },[posts])
+  const [posts, setPosts] = useState([])
 
   const [save, setSave] = useState([]);
 

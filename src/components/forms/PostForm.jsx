@@ -14,15 +14,6 @@ const PostForm = () => {
     setPostForm({...postForm, [name]:value })
     console.log(postForm);
   }
-
-  const fileToBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = (err) => reject(err);
-    });
-  };
   
   const handleOnSubmit = async (e) => {
     e.preventDefault();
@@ -32,19 +23,10 @@ const PostForm = () => {
       return;
     }
   
-    const base64Photo = await fileToBase64(postForm.photo);
-    const base64Length = base64Photo.length - 'data:image/png;base64,'.length;
-    const fileSizeInKB = (base64Length * 3) / 4 / 1024;
-    if (fileSizeInKB > 1024) {
-      alert('Please upload an image less than 1MB.');
-      return;
-    }
-  
     const newPost = {
       ...postForm,
-      photo: base64Photo, // convert photo to Base64
       creater: userName,
-      createdAt: new Date().toLocaleDateString(),
+      createdAt: new Date().toISOString(),
       id: posts.length > 0 ? posts[posts.length - 1].id + 1 : 1,
       isLiked: false,
       isSaved: false,
@@ -89,8 +71,11 @@ const PostForm = () => {
       <div className='mt-4'>
         <p>Add Photo</p>
         <div className='w-full mt-1 py-4 border border-gray-300 rounded-lg flex flex-col justify-center items-center bg-gray-50'>
-          <img src="/assets/icons/file-upload.svg" alt="file upload" 
+          {postForm.photo? <img src={URL.createObjectURL(postForm.photo)} alt="file upload" 
           className='w-16 h-16'/>
+        :
+        <img src="/assets/icons/file-upload.svg" alt="file upload" 
+          className='w-16 h-16'/>}
           
           <FileUploader/>
         </div>
