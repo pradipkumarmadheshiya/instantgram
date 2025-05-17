@@ -33,6 +33,12 @@ const PostForm = () => {
     }
   
     const base64Photo = await fileToBase64(postForm.photo);
+    const base64Length = base64Photo.length - 'data:image/png;base64,'.length;
+    const fileSizeInKB = (base64Length * 3) / 4 / 1024;
+    if (fileSizeInKB > 1024) {
+      alert('Please upload an image less than 1MB.');
+      return;
+    }
   
     const newPost = {
       ...postForm,
